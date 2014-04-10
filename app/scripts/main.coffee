@@ -4,7 +4,6 @@ window.cardSortGenerator =
   Views: {}
   Routers: {}
 
-
   init: ->
     cardSet = new @Collections.CardSet()
     $('.btn').click(cardSet.createNewCard)
