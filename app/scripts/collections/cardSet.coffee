@@ -1,4 +1,4 @@
 'use strict';
 
-class cardSortGenerator.Collections.CardsetCollection extends Backbone.Collection
-  model: cardSortGenerator.Models.CardsetModel
+class cardSortGenerator.Collections.CardSet extends Backbone.Collection
+  model: cardSortGenerator.Models.CardModel
