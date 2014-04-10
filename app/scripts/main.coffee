@@ -7,11 +7,7 @@ window.cardSortGenerator =
 
   init: ->
     cardSet = new @Collections.CardSet()
-    createNewCard = (element) =>
-      console.log('clicked')
-      cardSet.add(new @Models.CardModel)
-
-    $('.btn').click(createNewCard)
+    $('.btn').click(cardSet.createNewCard)
     view = new @Views.CardSetView(collection: cardSet);
 
 $ ->
