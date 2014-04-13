@@ -121,7 +121,8 @@ module.exports = function (grunt) {
         },
         clean: {
             dist: ['.tmp', '<%= yeoman.dist %>/*'],
-            server: '.tmp'
+            server: '.tmp',
+            test: ['.tmp/scripts', 'test/.tmp/spec']
         },
         jshint: {
             options: {
@@ -326,13 +327,12 @@ module.exports = function (grunt) {
     grunt.registerTask('test', function (isConnected) {
         isConnected = Boolean(isConnected);
         var testTasks = [
-                'clean:server',
+                'clean:test',
                 'coffee',
                 'createDefaultTemplate',
                 'jst',
                 'connect:test',
-                'mocha',
-                'watch:test'
+                'mocha'
             ];
             
         if(!isConnected) {
