@@ -330,7 +330,6 @@ module.exports = function (grunt) {
                 'coffee',
                 'createDefaultTemplate',
                 'jst',
-                'compass',
                 'connect:test',
                 'mocha',
                 'watch:test'
