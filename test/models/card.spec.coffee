@@ -2,5 +2,3 @@
 "use strict"
 
 describe 'Card Model', ->
-  beforeEach ->
-    @CardModel = new .Models.Card();

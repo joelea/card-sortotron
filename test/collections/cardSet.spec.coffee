@@ -2,5 +2,6 @@
 "use strict"
 
 describe 'CardSet Collection', ->
-  beforeEach ->
-    @CardSetCollection = new .Collections.CardSet()
+  it 'should result in 1 == 2', ->
+    1.should.equal 2
+

@@ -37,7 +37,7 @@ module.exports = function (grunt) {
                 tasks: ['coffee:dist']
             },
             coffeeTest: {
-                files: ['test/spec/{,*/}*.coffee'],
+                files: ['**/*.coffee'],
                 tasks: ['coffee:test']
             },
             compass: {
@@ -54,7 +54,9 @@ module.exports = function (grunt) {
                     '{.tmp,<%= yeoman.app %>}/scripts/{,*/}*.js',
                     '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp}',
                     '<%= yeoman.app %>/scripts/templates/*.{ejs,mustache,hbs}',
-                    'test/spec/**/*.js'
+                    'test/spec/**/*.js',
+                    '<%= yeoman.app %>/scripts/**/*.{js,coffee}', 
+                    'test/**/*.{js,coffee}'
                 ]
             },
             jst: {
@@ -64,7 +66,7 @@ module.exports = function (grunt) {
                 tasks: ['jst']
             },
             test: {
-                files: ['<%= yeoman.app %>/scripts/{,*/}*.js', 'test/spec/**/*.js'],
+                files: ['<%= yeoman.app %>/scripts/**/*.{js,coffee}', 'test/**/*.{js,coffee}'],
                 tasks: ['test:true']
             }
         },
@@ -91,8 +93,9 @@ module.exports = function (grunt) {
                     middleware: function (connect) {
                         return [
                             lrSnippet,
-                            mountFolder(connect, '.tmp'),
+                            mountFolder(connect, '.tmp/'),
                             mountFolder(connect, 'test'),
+                            mountFolder(connect, 'test/.tmp'),
                             mountFolder(connect, yeomanConfig.app)
                         ];
                     }
@@ -136,6 +139,7 @@ module.exports = function (grunt) {
             all: {
                 options: {
                     run: true,
+                    growlOnSuccess: true,
                     urls: ['http://localhost:<%= connect.test.options.port %>/index.html']
                 }
             }
@@ -155,9 +159,9 @@ module.exports = function (grunt) {
             test: {
                 files: [{
                     expand: true,
-                    cwd: 'test/spec',
-                    src: '{,*/}*.coffee',
-                    dest: '.tmp/spec',
+                    cwd: 'test',
+                    src: '**/*.coffee',
+                    dest: 'test/.tmp/spec',
                     ext: '.js'
                 }]
             }
@@ -307,11 +311,13 @@ module.exports = function (grunt) {
 
         grunt.task.run([
             'clean:server',
-            'coffee:dist',
+            'coffee',
             'createDefaultTemplate',
             'jst',
-            'compass:server',
+            'compass',
+            'connect:test',
             'connect:livereload',
+            'mocha',
             'open:server',
             'watch'
         ]);

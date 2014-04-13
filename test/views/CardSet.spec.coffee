@@ -2,5 +2,3 @@
 "use strict"
 
 describe 'CardSet View', ->
-  beforeEach ->
-    @CardSetView = new .Views.CardSet();
