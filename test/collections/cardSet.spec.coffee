@@ -2,10 +2,10 @@
 "use strict"
 
 describe 'CardSet', ->
+  beforeEach ->
+    @cardSet = new window.cardSortGenerator.Collections.CardSet()
+
   describe '#createNewCard', ->
     it 'should add a new card model to the collection', ->
-      cardSet = new window.cardSortGenerator.Collections.CardSet()
-
-      cardSet.createNewCard()
-
-      cardSet.length.should.equal 1
+      @cardSet.createNewCard()
+      @cardSet.length.should.equal 1
