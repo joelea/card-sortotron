@@ -3,13 +3,18 @@
 class cardSortGenerator.Views.CardView extends Backbone.View
 
     template: JST['app/scripts/templates/card.ejs']
+    editableCardTemplate: JST['app/scripts/templates/editableCard.ejs']
     className: 'card'
     events:
       "keypress form" : "keyPressOnForm"
       "change" : "modelUpdated"
 
     render: ->
-      html = @template(@model)
+      if @model.hasText()
+        html = @template(card: @model)
+      else
+        html = @editableCardTemplate(card: @model)
+
       (@$el).html(html)
 
     updateModelText: ->

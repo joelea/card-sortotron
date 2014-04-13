@@ -1,15 +1,5 @@
 <div class="col-sm-6 card-container">
-  <% if (hasText()) { %>
-    <div class="card">
-      <p><%= get('text') %></p>
-    </div>
-  <% } else { %>
-    <form class="form-horizontal" role="form">
-      <div class="form-group">
-        <div class="col-sm-12">
-          <input type="textarea" rows="3" class="form-control card" id="card-text" placeholder="Text">
-        </div>
-      </div>
-    </form>
-  <% } %>
+  <div class="card">
+    <p><%= card.get('text') || "" %></p>
+  </div>
 </div>
