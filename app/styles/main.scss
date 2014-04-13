@@ -2,6 +2,19 @@ $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
 
 @import 'sass-bootstrap/lib/bootstrap';
 
+.card-container {
+  padding: 5px;
+}
+
+.card {
+  border: 2px solid;
+  border-color: #cccccc;
+  border-radius: 9px;
+  padding: 10px;
+  height: 100px;
+  width: 100%;
+}
+
 .browsehappy {
     margin: 0.2em 0;
     background: #ccc;

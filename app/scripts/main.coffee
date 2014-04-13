@@ -3,9 +3,11 @@ window.cardSortGenerator =
   Collections: {}
   Views: {}
   Routers: {}
+
   init: ->
-    'use strict'
-    console.log 'Hello from Backbone!'
+    cardSet = new @Collections.CardSet()
+    $('.btn').click(cardSet.createNewCard)
+    view = new @Views.CardSetView(collection: cardSet);
 
 $ ->
   'use strict'
