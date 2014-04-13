@@ -3,4 +3,4 @@
 class cardSortGenerator.Models.CardModel extends Backbone.Model
 
   hasText: ->
-    return false
+    @has 'text'

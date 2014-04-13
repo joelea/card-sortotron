@@ -8,3 +8,7 @@ describe 'Card Model', ->
   describe '#hasText', ->
     it 'should start with no text', ->
       @card.hasText().should.be.false
+
+    it 'should have text after some has been set', ->
+      @card.set 'text', 'some text'
+      @card.hasText().should.be.true
