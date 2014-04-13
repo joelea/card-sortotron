@@ -1,15 +1,15 @@
 <div class="col-sm-6 card-container">
-  <div class="card">
-    <% if (hasText()) { %>
+  <% if (hasText()) { %>
+    <div class="card">
       <p><%= get('text') %></p>
-    <% } else { %>
-      <form class="form-horizontal" role="form">
-        <div class="form-group">
-          <div class="col-sm-12">
-            <input type="textarea" rows="3" class="form-control" id="card-text" placeholder="Text">
-          </div>
+    </div>
+  <% } else { %>
+    <form class="form-horizontal" role="form">
+      <div class="form-group">
+        <div class="col-sm-12">
+          <input type="textarea" rows="3" class="form-control card" id="card-text" placeholder="Text">
         </div>
-      </form>
-    <% } %>
-  </div>
+      </div>
+    </form>
+  <% } %>
 </div>

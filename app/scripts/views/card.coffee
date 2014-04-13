@@ -14,7 +14,7 @@ class cardSortGenerator.Views.CardView extends Backbone.View
 
     updateModelText: ->
       console.log "submitting"
-      text = $('#card-text').val()
+      text = @$('#card-text').val()
       @model.set 'text', text
       console.log "submitted"
       console.log @model
