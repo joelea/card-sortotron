@@ -3,6 +3,7 @@
 class cardSortGenerator.Views.CardSetView extends Backbone.View
 
     template: JST['app/scripts/templates/CardSet.ejs']
+    addBUtton: JST['app/scripts/templates/AddButton.ejs']
 
     initialize: ->
       @collection.on('add', @cardAdded, this)
@@ -10,3 +11,10 @@ class cardSortGenerator.Views.CardSetView extends Backbone.View
     cardAdded: (card) ->
       cardView = new cardSortGenerator.Views.CardView(model: card)
       cardView.render()
+      @repositionAddButton()
+
+    repositionAddButton: ->
+      console.log 'removing'
+      button = $('#add-card-button-container')
+      button.detatch
+      $('.cards').append button
