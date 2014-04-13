@@ -3,7 +3,6 @@
 class cardSortGenerator.Views.CardSetView extends Backbone.View
 
     template: JST['app/scripts/templates/CardSet.ejs']
-    addBUtton: JST['app/scripts/templates/AddButton.ejs']
 
     initialize: ->
       @collection.on('add', @cardAdded, this)
