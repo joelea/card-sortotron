@@ -5,4 +5,4 @@ class cardSortGenerator.Collections.CardSet extends Backbone.Collection
 
   createNewCard: (element) =>
     console.log('clicked')
-    @add(new @model)
+    @add(new @model())

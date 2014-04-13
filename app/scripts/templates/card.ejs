@@ -1,6 +1,11 @@
 <div class="col-sm-6 card-container">
   <div class="card">
-    <p>I am a card</p>
+    <% if (hasText()) { %>
+      <p><%= get('text') %></p>
+    <% } else { %>
+      <form onSubmit="return false;">
+        <input type="text" id="card-text"/> 
+      </form>
+    <% } %>
   </div>
 </div>
-

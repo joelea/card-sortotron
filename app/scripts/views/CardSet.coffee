@@ -7,13 +7,18 @@ class cardSortGenerator.Views.CardSetView extends Backbone.View
     initialize: ->
       @collection.on('add', @cardAdded, this)
 
+    generateNewAnchorElement: ->
+      (@$el).append("<div id='card-anchor'></div>")
+      return @$el.children('#card-anchor').last()
+
     cardAdded: (card) ->
-      cardView = new cardSortGenerator.Views.CardView(model: card)
+      newElement = @generateNewAnchorElement()
+      cardView = new cardSortGenerator.Views.CardView(model: card, el: newElement)
       cardView.render()
+
       @repositionAddButton()
 
     repositionAddButton: ->
-      console.log 'removing'
       button = $('#add-card-button-container')
       button.detatch
       $('.cards').append button
