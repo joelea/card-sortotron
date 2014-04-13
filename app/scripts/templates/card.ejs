@@ -3,8 +3,12 @@
     <% if (hasText()) { %>
       <p><%= get('text') %></p>
     <% } else { %>
-      <form onSubmit="return false;">
-        <input type="text" id="card-text"/> 
+      <form class="form-horizontal" role="form">
+        <div class="form-group">
+          <div class="col-sm-12">
+            <input type="textarea" rows="3" class="form-control" id="card-text" placeholder="Text">
+          </div>
+        </div>
       </form>
     <% } %>
   </div>
