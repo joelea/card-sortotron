@@ -10,7 +10,6 @@ window.cardSortGenerator =
     view.Views = @Views
     view.render()
 
-
 $ ->
   'use strict'
   cardSortGenerator.init()

@@ -1,0 +1,26 @@
+<% for (var i=0; i<5; i++) { %>
+  <div class="col-xs-6 card-container">
+    <div class="card">
+      <h2 class='card-title'>Title</p>
+    </div>
+  </div>
+<% } %>
+
+
+<% cards.forEach(function(card) { %>
+
+  <div class='printed-page'>
+  <% for (var i=0; i<5; i++) { %>
+
+    <div class="col-xs-6 card-container">
+      <div class="card">
+        <p><%= card.get('text') || "" %></p>
+      </div>
+    </div>
+
+  <% } %>
+  </div>
+
+
+<% }); %>
+

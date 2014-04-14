@@ -2,6 +2,18 @@ $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
 
 @import 'sass-bootstrap/lib/bootstrap';
 
+@media print {
+  .printed-page{
+    display: block;
+    page-break-before: always;
+    page-break-inside: avoid;
+  }
+
+  .header,.btn {
+    display: none;
+  }
+}
+
 .card-container {
   padding: 5px;
   .form-group {
@@ -19,17 +31,6 @@ $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
   padding: 10px;
   height: 100px;
   width: 100%;
-  #page-break-after: always;
-}
-
-#print-button {
-  margin: 5px;
-  width: 100%;
-}
-
-.print-button-container {
-  margin: 0px;
-  padding: 0px;
 }
 
 .browsehappy {
