@@ -23,10 +23,7 @@ class cardSortGenerator.Views.CardView extends Backbone.View
 
      focusOnField: ->
        el = @$("input").get(0)
-       if el.value?
-         elemLen = el.value.length
-       else
-         elemLen = 0
+       elemLen = el?.value?.length || 0
 
        el.selectionStart = elemLen
        el.selectionEnd = elemLen
@@ -43,10 +40,8 @@ class cardSortGenerator.Views.CardView extends Backbone.View
       @model.set 'text', text
 
     keyPressOnForm: (keyPress) ->
-      enterWasPressed = (key) ->
-        key.keyCode == 13
-
-      @updateModelText() if enterWasPressed(keyPress)
+      enterWasPressed = keyPress.keyCode == 13
+      if enterWasPressed then @updateModelText() 
       
     modelUpdated: ->
       @editable = false
