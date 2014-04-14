@@ -21,13 +21,13 @@ class cardSortGenerator.Views.CardView extends Backbone.View
       @$el.html(html)
       @focusOnField() if @editable
 
-     focusOnField: ->
-       el = @$("input").get(0)
-       elemLen = el?.value?.length || 0
+    focusOnField: ->
+      el = @$("input").get(0)
+      elemLen = el?.value?.length || 0
 
-       el.selectionStart = elemLen
-       el.selectionEnd = elemLen
-       el.focus()
+      el.selectionStart = elemLen
+      el.selectionEnd = elemLen
+      el.focus()
 
     cardClicked: ->
       console.log 'clicked'
