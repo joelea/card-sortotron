@@ -37,14 +37,16 @@ class cardSortGenerator.Views.CardView extends Backbone.View
 
     cardUnfocused: ->
       @updateModelText()
+      @editable = false
+      @render()
 
     updateModelText: ->
       text = @$('#card-text').val()
       @model.set 'text', text
 
     keyPressOnForm: (keyPress) ->
-      enterWasPressed = keyPress.keyCode == 13
-      if enterWasPressed then @updateModelText()
+      shouldTrigger = keyPress.keyCode == 13
+      if shouldTrigger then @updateModelText()
       
     modelUpdated: ->
       @editable = false
