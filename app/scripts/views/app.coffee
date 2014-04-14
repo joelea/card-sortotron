@@ -12,4 +12,3 @@ class cardSortGenerator.Views.AppView extends Backbone.View
   addCard: ->
     console.log 'add card button clicked'
     @collection.createNewCard()
-    
