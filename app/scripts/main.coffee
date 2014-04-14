@@ -6,7 +6,7 @@ window.cardSortGenerator =
 
   init: ->
     cardSet = new @Collections.CardSet()
-    $('.btn').click(cardSet.createNewCard)
+    $('#add-card-button').click(cardSet.createNewCard)
     view = new @Views.CardSetView(collection: cardSet, el: ".cards");
 
 $ ->
