@@ -19,20 +19,34 @@ class cardSortGenerator.Views.CardView extends Backbone.View
         html = @template(card: @model)
 
       @$el.html(html)
-      @$('input').focus() if @editable
+      @focusOnField() if @editable
+
+     focusOnField: ->
+       el = @$("input").get(0)
+       if el.value?
+         elemLen = el.value.length
+       else
+         elemLen = 0
+
+       el.selectionStart = elemLen
+       el.selectionEnd = elemLen
+       el.focus()
 
     cardClicked: ->
       console.log 'clicked'
-      @editable = true
-      @render()
+      if not @editable
+        @editable = true
+        @render()
 
     updateModelText: ->
       text = @$('#card-text').val()
       @model.set 'text', text
 
     keyPressOnForm: (keyPress) ->
-      if keyPress.keyCode == 13
-        @updateModelText()
+      enterWasPressed = (key) ->
+        key.keyCode == 13
+
+      @updateModelText() if enterWasPressed(keyPress)
       
     modelUpdated: ->
       @editable = false
