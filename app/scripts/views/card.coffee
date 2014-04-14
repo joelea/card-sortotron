@@ -8,7 +8,8 @@ class cardSortGenerator.Views.CardView extends Backbone.View
     events:
       "keypress form" : "keyPressOnForm"
       "change" : "modelUpdated"
-      "click .card" : "cardClicked"
+      "click .card" : "cardFocused"
+      "focusout .card" : "cardUnfocused"
 
     editable: true
 
@@ -29,11 +30,13 @@ class cardSortGenerator.Views.CardView extends Backbone.View
       el.selectionEnd = elemLen
       el.focus()
 
-    cardClicked: ->
-      console.log 'clicked'
+    cardFocused: ->
       if not @editable
         @editable = true
         @render()
+
+    cardUnfocused: ->
+      @updateModelText()
 
     updateModelText: ->
       text = @$('#card-text').val()
@@ -41,7 +44,7 @@ class cardSortGenerator.Views.CardView extends Backbone.View
 
     keyPressOnForm: (keyPress) ->
       enterWasPressed = keyPress.keyCode == 13
-      if enterWasPressed then @updateModelText() 
+      if enterWasPressed then @updateModelText()
       
     modelUpdated: ->
       @editable = false
