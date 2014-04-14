@@ -8,26 +8,32 @@ class cardSortGenerator.Views.CardView extends Backbone.View
     events:
       "keypress form" : "keyPressOnForm"
       "change" : "modelUpdated"
+      "click .card" : "cardClicked"
+
+    editable: true
 
     render: ->
-      if @model.hasText()
-        html = @template(card: @model)
-      else
+      if @editable
         html = @editableCardTemplate(card: @model)
+      else
+        html = @template(card: @model)
 
-      (@$el).html(html)
+      @$el.html(html)
+      @$('input').focus() if @editable
+
+    cardClicked: ->
+      console.log 'clicked'
+      @editable = true
+      @render()
 
     updateModelText: ->
-      console.log "submitting"
       text = @$('#card-text').val()
       @model.set 'text', text
-      console.log "submitted"
-      console.log @model
 
     keyPressOnForm: (keyPress) ->
       if keyPress.keyCode == 13
         @updateModelText()
       
     modelUpdated: ->
-      console.log "model updated"
+      @editable = false
       @render()
