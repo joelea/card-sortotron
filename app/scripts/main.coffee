@@ -7,7 +7,7 @@ window.cardSortGenerator =
   init: ->
     cardSet = new @Collections.CardSet()
     $('.btn').click(cardSet.createNewCard)
-    view = new @Views.CardSetView(collection: cardSet);
+    view = new @Views.CardSetView(collection: cardSet, el: ".cards");
 
 $ ->
   'use strict'

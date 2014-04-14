@@ -4,6 +4,12 @@ $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
 
 .card-container {
   padding: 5px;
+  .form-group {
+    margin-bottom: 0px;
+  }
+}
+
+#card-text {
 }
 
 .card {
