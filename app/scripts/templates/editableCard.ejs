@@ -3,9 +3,9 @@
     <div class="form-group">
       <div class="col-sm-12">
         <% if (card.hasText()) { %>
-          <input type="textarea" rows="3" class="form-control card" id="card-text" value=<%= card.get('text') %> >
+          <input type="textarea" rows="3" class="form-control card" autocomplete="off" id="card-text" value=<%= card.get('text') %> >
         <% } else { %>
-          <input type="textarea" rows="3" class="form-control card" id="card-text" placeholder="Text">
+          <input type="textarea" rows="3" class="form-control card" autocomplete="off" id="card-text" placeholder="Text">
         <% } %>
       </div>
     </div>
