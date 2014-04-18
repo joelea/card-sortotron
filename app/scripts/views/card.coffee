@@ -23,11 +23,11 @@ class cardSortGenerator.Views.CardView extends Backbone.View
       @focusOnField() if @editable
 
     focusOnField: ->
-      el = @$("input").get(0)
-      elemLen = el?.value?.length || 0
+      textLength = @model.get('text')?.length || 0
+      el = @$('input').get(0)
 
-      el.selectionStart = elemLen
-      el.selectionEnd = elemLen
+      el.selectionStart = textLength
+      el.selectionEnd = textLength
       el.focus()
 
     cardFocused: ->
@@ -37,14 +37,16 @@ class cardSortGenerator.Views.CardView extends Backbone.View
 
     cardUnfocused: ->
       @updateModelText()
+      @editable = false
+      @render()
 
     updateModelText: ->
       text = @$('#card-text').val()
       @model.set 'text', text
 
     keyPressOnForm: (keyPress) ->
-      enterWasPressed = keyPress.keyCode == 13
-      if enterWasPressed then @updateModelText()
+      shouldTrigger = keyPress.keyCode == 13
+      if shouldTrigger then @updateModelText()
       
     modelUpdated: ->
       @editable = false

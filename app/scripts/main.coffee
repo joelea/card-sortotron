@@ -6,9 +6,10 @@ window.cardSortGenerator =
 
   init: ->
     cardSet = new @Collections.CardSet()
-    $('.btn').click(cardSet.createNewCard)
-    view = new @Views.CardSetView(collection: cardSet, el: ".cards");
+    view = new @Views.AppView(collection: cardSet, el: '#app-anchor')
+    view.Views = @Views
+    view.render()
 
 $ ->
   'use strict'
-  cardSortGenerator.init();
+  cardSortGenerator.init()
