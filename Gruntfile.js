@@ -28,10 +28,10 @@ module.exports = function (grunt) {
     grunt.initConfig({
         yeoman: yeomanConfig,
         'gh-pages': {
-          options: {
-            base: 'dist'
-          },
-          src: ['**']
+            options: {
+                base: 'dist'
+            },
+            src: ['**']
         },
         watch: {
             options: {
@@ -61,7 +61,7 @@ module.exports = function (grunt) {
                     '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp}',
                     '<%= yeoman.app %>/scripts/templates/*.{ejs,mustache,hbs}',
                     'test/spec/**/*.js',
-                    '<%= yeoman.app %>/scripts/**/*.{js,coffee}', 
+                    '<%= yeoman.app %>/scripts/**/*.{js,coffee}',
                     'test/**/*.{js,coffee}'
                 ]
             },
@@ -133,7 +133,7 @@ module.exports = function (grunt) {
         jshint: {
             options: {
                 jshintrc: '.jshintrc',
-                reporter: require('jshint-stylish')
+                //reporter: require('jshint-stylish')
             },
             all: [
                 'Gruntfile.js',
@@ -293,7 +293,7 @@ module.exports = function (grunt) {
         grunt.file.write('.tmp/scripts/templates.js', 'this.JST = this.JST || {};');
     });
 
-    grunt.registerTask('server', function () {
+    grunt.registerTask('server', function (target) {
         grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
         grunt.task.run(['serve:' + target]);
     });
@@ -365,6 +365,13 @@ module.exports = function (grunt) {
         'copy',
         'rev',
         'usemin'
+    ]);
+
+    grunt.registerTask('deploy', [
+        'jshint',
+        'test',
+        'build',
+        'gh-pages'
     ]);
 
     grunt.registerTask('default', [
