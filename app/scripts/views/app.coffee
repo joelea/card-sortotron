@@ -16,7 +16,7 @@ class cardSortGenerator.Views.AppView extends Backbone.View
     @collection.createNewCard()
 
   print: ->
-    printView = new @Views.CardSortPrintView(collection: @collection, el: ".cards")
+    printView = new @Views.PrintableCardSortView(collection: @collection, el: ".cards")
     printView.render()
     window.print()
 
