@@ -22,3 +22,6 @@ describe 'PrintableCardSortModel', ->
 
     it 'should contain a single page', ->
       expect(@printable.pages()).to.have.length 1
+
+    it 'should have a first page with 10 cards', ->
+      expect(@printable.pages()[0]).to.have.length 10
