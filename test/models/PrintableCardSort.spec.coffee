@@ -16,12 +16,19 @@ describe 'PrintableCardSortModel', ->
 
   describe 'when given a card set with one card', ->
     beforeEach ->
-      singletonCardSet = new @CardSet()
-      singletonCardSet.createNewCard()
-      @printable = new @Model(cardSet: singletonCardSet, numberOfSets: 10)
+      @printableSetForClassOf = (n) ->
+        singletonCardSet = new @CardSet()
+        singletonCardSet.createNewCard()
+        return new @Model(cardSet: singletonCardSet, numberOfSets: n)
 
     it 'should contain a single page', ->
-      expect(@printable.pages()).to.have.length 1
+      printable = @printableSetForClassOf(10)
+      expect(printable.pages()).to.have.length 1
 
-    it 'should have a first page with 10 cards', ->
-      expect(@printable.pages()[0]).to.have.length 10
+    it 'and asked for a set of 10 should have a first page with 10 cards', ->
+      printable = @printableSetForClassOf(10)
+      expect(printable.pages()[0]).to.have.length 10
+
+    it 'and asked for a set of 5 should have a first page with 10 cards', ->
+      printable = @printableSetForClassOf(5)
+      expect(printable.pages()[0]).to.have.length 5
