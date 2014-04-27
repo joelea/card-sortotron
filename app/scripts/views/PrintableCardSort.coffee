@@ -1,4 +1,4 @@
 class cardSortGenerator.Views.PrintableCardSortView extends Backbone.View
   template: JST['app/scripts/templates/cardSortPrintView.ejs']
 
-  render: -> @$el.html(@template(cards: @collection))
+  render: -> @$el.html(@template(pages: @model.pages()))

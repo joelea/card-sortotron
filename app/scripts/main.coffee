@@ -8,6 +8,7 @@ window.cardSortGenerator =
     cardSet = new @Collections.CardSet()
     view = new @Views.AppView(collection: cardSet, el: '#app-anchor')
     view.Views = @Views
+    view.Models = @Models
     view.render()
 
 $ ->
