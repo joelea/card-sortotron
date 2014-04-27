@@ -3,10 +3,13 @@ $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
 @import 'sass-bootstrap/lib/bootstrap';
 
 @media print {
-  .printed-page{
+  .printed-page {
     display: block;
-    page-break-before: always;
+    page-break-after: always;
     page-break-inside: avoid;
+  }
+  .printed-page:last-of-type {
+    page-break-after: avoid;
   }
 
   .header,.btn {
