@@ -2,21 +2,6 @@ $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
 
 @import 'sass-bootstrap/lib/bootstrap';
 
-@media print {
-  .printed-page {
-    display: block;
-    page-break-after: always;
-    page-break-inside: avoid;
-  }
-  .printed-page:last-of-type {
-    page-break-after: avoid;
-  }
-
-  .header,.btn {
-    display: none;
-  }
-}
-
 .card-container {
   padding: 5px;
   .form-group {
@@ -122,4 +107,36 @@ body {
     .jumbotron {
         border-bottom: 0;
     }
+}
+
+@media print {
+  .printed-page {
+    display: block;
+    page-break-inside: avoid;
+    page-break-before: avoid;
+
+    page-break-after: always;
+  }
+
+  .printed-page:last-of-type {
+    page-break-after: avoid;
+  }
+
+  .header,.btn,.btn-group {
+    display: none;
+  }
+
+  #app-anchor, .container {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  html, body {
+    height: 100%;
+    padding-top: 0;
+    margin-top: 0;
+  }
+
 }
