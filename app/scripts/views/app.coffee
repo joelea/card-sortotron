@@ -16,9 +16,13 @@ class cardSortGenerator.Views.AppView extends Backbone.View
     @collection.createNewCard()
 
   print: ->
-    printView = new @Views.CardSortPrintView(collection: @collection, el: ".cards")
+    printableCardSort = new @Models.PrintableCardSortModel(cardSet: @collection, numberOfSets: @numberOfSets())
+    printView = new @Views.PrintableCardSortView(model: printableCardSort, el: ".cards")
     printView.render()
     window.print()
+
+  numberOfSets: ->
+    return parseInt(prompt("How many sets would you like to produce?", "10"))
 
   edit: ->
     console.log 'moving to edit'

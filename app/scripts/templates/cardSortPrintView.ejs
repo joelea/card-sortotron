@@ -1,16 +1,8 @@
-<% for (var i=0; i<5; i++) { %>
-  <div class="col-xs-6 card-container">
-    <div class="card">
-      <h2 class='card-title'>Title</p>
-    </div>
-  </div>
-<% } %>
-
-
-<% cards.forEach(function(card) { %>
+<% pages().forEach(function(page) { %>
 
   <div class='printed-page'>
-  <% for (var i=0; i<5; i++) { %>
+
+    <% page.forEach(function(card) { %>
 
     <div class="col-xs-6 card-container">
       <div class="card">
@@ -18,9 +10,8 @@
       </div>
     </div>
 
-  <% } %>
+    <% }) %>
+
   </div>
 
-
 <% }); %>
-
