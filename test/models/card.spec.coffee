@@ -12,7 +12,7 @@ describe 'Card Model', ->
       @card.hasText().should.be.false
 
     it 'should have text after some has been set', ->
-      @card.set 'text', 'some text'
+      @card.addContent 'some text'
       @card.hasText().should.be.true
 
   describe '#hasPicture', ->

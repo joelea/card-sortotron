@@ -2,13 +2,18 @@
 
 class cardSortGenerator.Models.CardModel extends Backbone.Model
 
-  hasText: -> @has 'text'
+  hasText: -> @get('content')?.type == 'text'
 
   addText: (text) ->
-    @set 'text', text
+    @set 'content', @text(text)
     return @success()
 
-  getText: -> @get 'text'
+  text: (text) ->
+    type: 'text',
+    details:
+      text: text
+
+  getText: -> @get('content').details.text
 
   hasPicture: -> @get('content')?.type == 'picture'
 
