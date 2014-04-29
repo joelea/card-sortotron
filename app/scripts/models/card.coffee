@@ -4,34 +4,6 @@ class cardSortGenerator.Models.CardModel extends Backbone.Model
 
   contentIs: (type) ->  @get('content')?.type == type
 
-  hasText: -> @contentIs('text')
-
-  addText: (text) ->
-    @set 'content', @text(text)
-    return @success()
-
-  text: (text) ->
-    type: 'text',
-    details:
-      text: text
-
-  getText: -> @get('content').details.text
-
-  hasPicture: -> @contentIs('picture')
-
-  addPicture: (url) ->
-    @set 'content', @picture(url)
-    return @success()
-
-  picture: (url) ->
-    type: 'picture',
-    details:
-      url: url
-
-  getPicture: -> @get('content').details.url
-
-  isPicture: (content) -> content.indexOf('.jpg') != -1
-
   addContent: (content) ->
     if content == ''
       return @failure()
@@ -41,8 +13,33 @@ class cardSortGenerator.Models.CardModel extends Backbone.Model
 
     return @addText content
 
+  text: (text) ->
+    type: 'text',
+    details:
+      text: text
 
+  hasText: -> @contentIs('text')
 
+  addText: (text) ->
+    @set 'content', @text(text)
+    return @success()
+
+  picture: (url) ->
+    type: 'picture',
+    details:
+      url: url
+
+  getText: -> @get('content').details.text
+
+  hasPicture: -> @contentIs('picture')
+
+  addPicture: (url) ->
+    @set 'content', @picture(url)
+    return @success()
+
+  getPicture: -> @get('content').details.url
+
+  isPicture: (content) -> content.indexOf('.jpg') != -1
 
   success: -> success: true
   failure: -> success: false
