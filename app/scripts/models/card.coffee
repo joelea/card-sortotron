@@ -6,4 +6,4 @@ class cardSortGenerator.Models.CardModel extends Backbone.Model
     @has 'text'
 
   hasPicture: ->
-    false
+    @has 'picture'
