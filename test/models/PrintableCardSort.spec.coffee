@@ -1,5 +1,5 @@
 # global beforeEach, describe, it, assert, expect
-"use strict"
+"use strict";
 
 describe 'PrintableCardSortModel', ->
   beforeEach ->
