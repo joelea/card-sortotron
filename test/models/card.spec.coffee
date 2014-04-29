@@ -37,14 +37,14 @@ describe 'Card Model', ->
 
   describe '#getPicture', ->
     it 'should retrieve a valid, added picture', ->
-      @card.addPicture @picture
+      @card.addContent @picture
       @card.getPicture().should.equal @picture
 
     it 'should have old valid pictures overridden by new valid pictures', ->
-      @card.addPicture @otherPicture
-      @card.addPicture @picture
+      @card.addContent @otherPicture
+      @card.addContent @picture
       @card.getPicture().should.equal @picture
 
     it 'should not retrieve an invalid, added picture', ->
-      @card.addPicture ''
+      @card.addContent ''
       @card.getPicture.should.not.equal @picture
