@@ -35,6 +35,11 @@ describe 'Card Model', ->
       response = @card.addContent('')
       response.success.should.be.false
 
+    it 'should take non picture-url text and set it as the text content', ->
+      text = 'some text'
+      @card.addContent text
+      @card.getText().should.equal text
+
   describe '#getPicture', ->
     it 'should retrieve a valid, added picture', ->
       @card.addContent @picture
