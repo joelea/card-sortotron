@@ -8,7 +8,7 @@ class cardSortGenerator.Models.CardModel extends Backbone.Model
     if content.raw == ''
       return @failure()
 
-    if content.isAPicture()
+    if content.ofType('picture')
       return @addPicture content
 
     return @addText content
