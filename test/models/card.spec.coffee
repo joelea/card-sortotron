@@ -22,6 +22,10 @@ describe 'Card Model', ->
       @card.addPicture @picture
       @card.hasPicture().should.be.true
 
+    it 'should not have a picture after an invalid picture has attempted to be set', ->
+      @card.addPicture ''
+      @card.hasPicture().should.be.false
+
   describe '#addPicture', ->
     it 'should respond with success when it adds a valid picture', ->
       @card.addPicture(@picture).success.should.be.true
