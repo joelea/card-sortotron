@@ -7,3 +7,7 @@ class cardSortGenerator.Models.CardModel extends Backbone.Model
 
   hasPicture: ->
     @has 'picture'
+
+  addPicture: (picture) ->
+    @set 'picture', picture
+    

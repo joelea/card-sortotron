@@ -18,5 +18,5 @@ describe 'Card Model', ->
       @card.hasPicture().should.be.false
 
     it 'should have a picture after a valid picture has been set', ->
-      @card.set 'picture', 'http://d1hekt5vpuuw9b.cloudfront.net/assets/article/87db4dc6f40fab489988a3d5ef593d2d_ultimate-teddy-bear-test_featuredImage.jpg'
+      @card.addPicture 'http://d1hekt5vpuuw9b.cloudfront.net/assets/article/87db4dc6f40fab489988a3d5ef593d2d_ultimate-teddy-bear-test_featuredImage.jpg'
       @card.hasPicture().should.be.true
