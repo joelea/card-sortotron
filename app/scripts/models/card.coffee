@@ -10,4 +10,5 @@ class cardSortGenerator.Models.CardModel extends Backbone.Model
 
   addPicture: (picture) ->
     @set 'picture', picture
+    return success: true
     
