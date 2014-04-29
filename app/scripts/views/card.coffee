@@ -42,7 +42,7 @@ class cardSortGenerator.Views.CardView extends Backbone.View
 
     updateModelText: ->
       text = @$('#card-text').val()
-      @model.set 'text', text
+      @model.addContent(new window.Content(text))
 
     keyPressOnForm: (keyPress) ->
       shouldTrigger = keyPress.keyCode == 13

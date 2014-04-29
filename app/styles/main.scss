@@ -9,7 +9,14 @@ $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
   }
 }
 
-#card-text {
+.card-img {
+  max-height: 100%;
+}
+
+.card-img-container {
+  height: 100%;
+  width: 100%;
+  text-align: center;
 }
 
 .card {
@@ -17,7 +24,7 @@ $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
   border-color: #cccccc;
   border-radius: 9px;
   padding: 10px;
-  height: 100px;
+  height: 200px;
   width: 100%;
 }
 

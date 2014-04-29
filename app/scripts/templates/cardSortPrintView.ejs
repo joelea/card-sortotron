@@ -5,9 +5,16 @@
     <% page.forEach(function(card) { %>
 
     <div class="col-xs-6 card-container">
-      <div class="card">
-        <p><%= card.get('text') || "" %></p>
-      </div>
+    <div class="card">
+      <% if (card.hasText()) { %>
+        <p><%= card.getText() %></p>
+      <% } %>
+      <% if (card.hasPicture()) { %>
+        <div class='card-img-container'>
+          <img class='card-img' src='<%= card.getPicture() %>'></img>
+        </div>
+      <% } %>
+  </div>
     </div>
 
     <% }) %>
