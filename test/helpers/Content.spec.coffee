@@ -9,7 +9,9 @@ describe 'Content', ->
       ['', text ],
       ['text', text],
       ['http://www.blah.com/blah.jpg', pic],
-      ['http://www.blah.com/blah.png', pic]
+      ['http://www.blah.com/blah.png', pic],
+      ['https://www.blah.com/blah.bmp', pic],
+      ['blah blah png blah blah', text],
     ]
       
     examples.forEach((example) ->

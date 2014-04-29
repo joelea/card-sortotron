@@ -3,9 +3,12 @@
 class window.Content
   constructor: (rawContent) -> @raw = rawContent
   
-  imageExtensions: ['jpg', 'png']
+  imageExtensions: ['jpg', 'png', 'bmp']
 
-  isAPicture: ->
+  isAPicture: -> @hasAValidExtension() && @isAURL()
+  isAURL: -> @raw.indexOf('http') == 0
+
+  hasAValidExtension: ->
     _or = (a,b) -> a or b
     @imageExtensions.map( (ext) => @hasExtension(ext) )
                     .reduce(_or)
@@ -13,7 +16,7 @@ class window.Content
   hasExtension: (ext) -> @raw?.indexOf(ext) != -1
 
   ofType: (type) ->
-    if type == 'picture'
-      return @isAPicture()
+    if @isAPicture()
+     return type == 'picture'
 
     return type == 'text'
