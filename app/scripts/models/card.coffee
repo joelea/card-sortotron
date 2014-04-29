@@ -11,6 +11,10 @@ class cardSortGenerator.Models.CardModel extends Backbone.Model
   addPicture: (picture) ->
     @set 'picture', picture
     if picture == ''
-      return { success: false, error: 'There was no url entered. Please enter a valid URL to add a picture' }
+      return @error 'There was no url entered. Please enter a valid URL to add a picture'
 
     return success: true
+
+  error: (text) ->
+    success: false,
+    error: text
