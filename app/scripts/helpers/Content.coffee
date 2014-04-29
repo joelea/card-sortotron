@@ -5,8 +5,8 @@ class window.Content
 
   isAPicture: -> @raw.indexOf('.jpg') != -1
 
-  type: ->
-    if @isAPicture()
-      return 'picture'
+  ofType: (type) ->
+    if type == 'picture'
+      return @isAPicture()
 
-    return 'text'
+    return type == 'text'

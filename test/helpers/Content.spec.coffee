@@ -10,6 +10,6 @@ describe 'Content', ->
                  ['http://www.blah.com/blah.jpg', pic] ]
       
     examples.forEach (example) ->
-      it 'should correctly identify text as a picture or not', ->
+      it "should correctly identify '#{example[0]}' as #{example[1]}", ->
         content = new window.Content(example[0])
-        content.type().should.equal example[1]
+        content.ofType(example[1]).should.be.true
