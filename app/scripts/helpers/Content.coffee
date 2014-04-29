@@ -6,7 +6,9 @@ class window.Content
   imageExtensions: ['jpg', 'png']
 
   isAPicture: ->
-    @imageExtensions.reduce( ((left, ext) => left || @hasExtension(ext)), false)
+    _or = (a,b) -> a or b
+    @imageExtensions.map( (ext) => @hasExtension(ext) )
+                    .reduce(_or)
 
   hasExtension: (ext) -> @raw?.indexOf(ext) != -1
 
