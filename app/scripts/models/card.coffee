@@ -4,19 +4,24 @@ class cardSortGenerator.Models.CardModel extends Backbone.Model
 
   hasText: -> @has 'text'
 
-  addText: (text) -> 
+  addText: (text) ->
     @set 'text', text
     return @success()
 
   getText: -> @get 'text'
 
-  hasPicture: -> @has 'picture'
+  hasPicture: -> @get('content')?.type == 'picture'
 
-  addPicture: (picture) -> 
-    @set 'picture', picture
+  addPicture: (url) ->
+    @set 'content', @picture(url)
     return @success()
 
-  getPicture: -> @get 'picture'
+  picture: (url) ->
+    type: 'picture',
+    details:
+      url: url
+
+  getPicture: -> @get('content').details.url
 
   isPicture: (content) -> content.indexOf('.jpg') != -1
 
