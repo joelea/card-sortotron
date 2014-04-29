@@ -26,6 +26,10 @@ describe 'Card Model', ->
     it 'should respond with success when it adds a valid picture', ->
       @card.addPicture(@picture).success.should.be.true
 
+    it 'should respond with failure when trying to add an empty url for a picture', ->
+      response = @card.addPicture('')
+      response.success.should.be.false
+
     it 'should respond with a sensible error when you try to add an empty picture', ->
       response = @card.addPicture('')
       response.error.should.equal 'There was no url entered. Please enter a valid URL to add a picture'
