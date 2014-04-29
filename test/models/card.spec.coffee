@@ -20,11 +20,11 @@ describe 'Card Model', ->
       @card.hasPicture().should.be.false
 
     it 'should have a picture after a valid picture has been set', ->
-      @card.addPicture @picture
+      @card.addContent @picture
       @card.hasPicture().should.be.true
 
     it 'should not have a picture after an invalid picture has attempted to be set', ->
-      @card.addPicture ''
+      @card.addContent ''
       @card.hasPicture().should.be.false
 
   describe '#addContent', ->

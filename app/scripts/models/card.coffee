@@ -8,9 +8,7 @@ class cardSortGenerator.Models.CardModel extends Backbone.Model
   hasPicture: ->
     @has 'picture'
 
-  addContent: (picture) -> @addPicture picture
-
-  addPicture: (picture) ->
+  addContent: (picture) ->
     if picture == ''
       return @failure()
 
