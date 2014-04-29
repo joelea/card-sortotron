@@ -6,9 +6,7 @@ class window.Content
   imageExtensions: ['jpg', 'png']
 
   isAPicture: ->
-    isPicture = false
-    @imageExtensions.forEach((ext) => isPicture = isPicture || @hasExtension(ext) )
-    return isPicture
+    @imageExtensions.reduce( ((left, ext) => left || @hasExtension(ext)), false)
 
   hasExtension: (ext) -> @raw?.indexOf(ext) != -1
 
