@@ -42,3 +42,7 @@ describe 'Card Model', ->
     it 'should retrieve a valid, added picture', ->
       @card.addPicture @picture
       @card.getPicture().should.equal @picture
+
+    it 'should not retrieve an invalid, added picture', ->
+      @card.addPicture ''
+      @card.getPicture.should.not.equal @picture
