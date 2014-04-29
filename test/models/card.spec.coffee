@@ -27,12 +27,12 @@ describe 'Card Model', ->
       @card.addPicture ''
       @card.hasPicture().should.be.false
 
-  describe '#addPicture', ->
+  describe '#addContent', ->
     it 'should respond with success when it adds a valid picture', ->
       @card.addPicture(@picture).success.should.be.true
 
-    it 'should respond with failure when trying to add an empty url for a picture', ->
-      response = @card.addPicture('')
+    it 'should respond with failure when trying to add empty content', ->
+      response = @card.addContent('')
       response.success.should.be.false
 
     it 'should respond with a sensible error when you try to add an empty picture', ->
