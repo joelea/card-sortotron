@@ -15,6 +15,8 @@ class cardSortGenerator.Models.CardModel extends Backbone.Model
     @set 'picture', picture
     return @success()
 
+  getPicture: -> @get 'picture'
+
   error: (text) ->
     success: false,
     error: text
