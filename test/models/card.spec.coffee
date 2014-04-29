@@ -5,6 +5,7 @@ describe 'Card Model', ->
   beforeEach ->
     @card = new window.cardSortGenerator.Models.CardModel()
     @picture = 'http://d1hekt5vpuuw9b.cloudfront.net/assets/article/87db4dc6f40fab489988a3d5ef593d2d_ultimate-teddy-bear-test_featuredImage.jpg'
+    @otherPicture = 'http://thumbs3.ebaystatic.com/d/l225/m/mmhzvWPK5dH7WlqODdQh0RA.jpg'
 
   describe '#hasText', ->
     it 'should start with no text', ->
@@ -40,6 +41,11 @@ describe 'Card Model', ->
 
   describe '#getPicture', ->
     it 'should retrieve a valid, added picture', ->
+      @card.addPicture @picture
+      @card.getPicture().should.equal @picture
+
+    it 'should have old valid pictures overridden by new valid pictures', ->
+      @card.addPicture @otherPicture
       @card.addPicture @picture
       @card.getPicture().should.equal @picture
 
