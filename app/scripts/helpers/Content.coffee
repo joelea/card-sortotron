@@ -12,8 +12,6 @@ class window.Content
 
   hasExtension: (ext) -> @raw?.indexOf(ext) != -1
 
-  or: (a,b) -> a || b
-
   ofType: (type) ->
     if type == 'picture'
       return @isAPicture()
